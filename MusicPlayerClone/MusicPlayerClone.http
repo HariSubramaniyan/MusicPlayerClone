@@ -1,0 +1,6 @@
+@MusicPlayerClone_HostAddress = http://localhost:5151
+
+GET {{MusicPlayerClone_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
