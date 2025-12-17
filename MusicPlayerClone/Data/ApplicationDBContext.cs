@@ -36,7 +36,7 @@ namespace MusicPlayerClone.Data
             modelBuilder.Entity<PlayListSongs>()
                 .HasOne(ps => ps.playList)
                 .WithMany(p => p.playListSongs)
-                .HasForeignKey(ps => ps.songsId);
+                .HasForeignKey(ps => ps.playListId);
 
             modelBuilder.Entity<PlayListSongs>()
                 .HasOne(ps => ps.songs)
