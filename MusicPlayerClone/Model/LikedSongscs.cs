@@ -2,7 +2,7 @@
 {
     public class LikedSongscs
     {
-        public int Id { get; set; }
+        public int userId { get; set; }
         
         public User user { get; set; }
         public int songsId { get; set; }
