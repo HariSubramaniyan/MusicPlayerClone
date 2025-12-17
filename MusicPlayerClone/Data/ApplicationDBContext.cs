@@ -20,11 +20,11 @@ namespace MusicPlayerClone.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<LikedSongscs>()
-                .HasKey(ls => new { ls.user.Id, ls.songsId });
+                .HasKey(ls => new { ls.userId, ls.songsId });
             modelBuilder.Entity<LikedSongscs>()
                 .HasOne(ls => ls.user)
                 .WithMany(u => u.likesSongs)
-                .HasForeignKey(ls => ls.user.Id);
+                .HasForeignKey(ls => ls.userId);
             modelBuilder.Entity<LikedSongscs>()
                 .HasOne(ls => ls.songs)
                 .WithMany(s => s.likedBy)
