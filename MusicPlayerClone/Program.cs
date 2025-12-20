@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MusicPlayerClone.Data;
+using MusicPlayerClone.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
+        //Note
+        //When System.Text.Json tries to serialize a PlayList instance, it recursively traverses:
+        //PlayList → PlayListSongs → each PlayListSong → PlayList → PlayListSongs → ...
+        //This creates a cycle and exceeds the default depth of 32.
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
         options.JsonSerializerOptions.WriteIndented = true;
     }); 
